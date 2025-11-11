@@ -4,6 +4,12 @@ FROM eclipse-temurin:21-jre-alpine
 # Set working directory in the container
 WORKDIR /app
 
+# Create the upload directory
+RUN mkdir -p /app/myApp/static
+
+# (optional but good) declare it as a volume
+VOLUME ["/app/myApp/static"]
+
 # Copy the Spring Boot JAR into the container
 COPY web-product-api-0.0.1-SNAPSHOT.jar .
 
